@@ -24,16 +24,16 @@ public class Country {
 	private BigDecimal capital;
 	private String code2;
 	
-	private List<City> city;
+	private List<City> citys;
 	
 	
 
 	public List<City> getCity() {
-		return city;
+		return citys;
 	}
 
-	public void setCity(List<City> city) {
-		this.city = city;
+	public void setCity(List<City> citys) {
+		this.citys = citys;
 	}
 
 	public Country() {
