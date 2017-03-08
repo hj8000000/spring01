@@ -12,7 +12,7 @@ import com.example.util.Pagination;
 public interface EmpMapper {
 	
 	@Select("select count(*) from emp")
-	int selectPageTotalCount();
+	int selectTotalCount();
 	
 	@Select("select * from emp")
 	List<Emp> selectAll();
@@ -25,7 +25,11 @@ public interface EmpMapper {
 			"offset #{firstItem} - 1 rows",
 			"fetch next #{itemsPerPage} rows only"
 	})
-	List<Emp> selectPage(Pagination paging);
-	List<Emp> selectPageWithDept();
+	List<Emp> selectEmpPage(Pagination paging);
+	List<Emp> selectEmpPageWithDept(Pagination paging);
+	
+	@Select("select * from emp where empno = #{empno}")
+	Emp selectByEmpno(int empno);
+	Emp selectByEmpnoWithDept(int empno);
 	
 }

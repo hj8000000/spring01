@@ -23,6 +23,12 @@ public class CityMapperTests {
 	public void test00_confirm() {
 		System.out.println("mapper = " + citymapper);
 	}
+	
+	@Test
+	public void test00_selectTotalCount() {
+		System.out.println("totalCity = " + citymapper.selectTotalCount());
+	}
+	
 	@Test
 	public void test01_selectAll() {
 		List<City> list = citymapper.selectAll();

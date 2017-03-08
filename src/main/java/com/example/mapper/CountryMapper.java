@@ -14,7 +14,7 @@ public interface CountryMapper {
 	@Select("select count(*) from country")
 	int selectTotalCount();
 	
-	@Select("select * from country")
+	@Select("select * from country where continent='Asia'")
 	List<Country> selectAll();
 	List<Country> selectAllWithCity();
 	
@@ -22,7 +22,7 @@ public interface CountryMapper {
 		"select *								",
 		"  from country							",
 		" order by name							",			
-		"offset #{firstItem} - 1 rows				",
+		"offset #{firstItem} - 1 rows			",
 		" fetch next #{itemsPerPage} rows only	"
 	})
 	List<Country> selectPage(Pagination paging);

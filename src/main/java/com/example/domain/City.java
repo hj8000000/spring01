@@ -12,7 +12,6 @@ public class City {
 	private String countryCode;
 	private String district;
 	private BigDecimal population;
-	
 	private Country country;
 
 	public Country getCountry() {

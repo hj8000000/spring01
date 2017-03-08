@@ -8,27 +8,29 @@
 	<result property="countryCode"	column="city_country_code"/>
 	<result property="district"		column="city_district"/>
 	<result property="population"	column="city_population"/>
-	<association property="country" javaType="com.example.domain.Country">
-		<id property="code"	column="country_code"/>
-		<result property="name"	column="country_name"/>
-		<result property="continent"	column="country_continent"/>
-		<result property="region"	column="country_region"/>
-		<result property="surfaceArea"	column="country_surface_area"/>
-		<result property="indepYear"	column="country_indep_year"/>
-		<result property="population"	column="country_population"/>
+	
+	<association property="country" 		javaType="com.example.domain.Country">
+		<id property="code"					column="country_code"/>
+		<result property="name"				column="country_name"/>
+		<result property="continent"		column="country_continent"/>
+		<result property="region"			column="country_region"/>
+		<result property="surfaceArea"		column="country_surface_area"/>
+		<result property="indepYear"		column="country_indep_year"/>
+		<result property="population"		column="country_population"/>
 		<result property="lifeExpectancy"	column="country_life_expectancy"/>
-		<result property="gnp"	column="country_gnp"/>
-		<result property="gnpOld"	column="country_gnp_old"/>
-		<result property="localName"	column="country_local_name"/>
+		<result property="gnp"				column="country_gnp"/>
+		<result property="gnpOld"			column="country_gnp_old"/>
+		<result property="localName"		column="country_local_name"/>
 		<result property="governmentForm"	column="country_government_form"/>
-		<result property="headOfState"	column="country_head_of_state"/>
-		<result property="capital"	column="country_capital"/>
-		<result property="code2"	column="country_code2"/>
+		<result property="headOfState"		column="country_head_of_state"/>
+		<result property="capital"			column="country_capital"/>
+		<result property="code2"			column="country_code2"/>
 	</association>
 
 </resultMap>
 
 <select id="selectAllWithCountry" resultMap="cityWithCountry">
+	
 	select c1.id				as city_id,
 		   c1.name				as city_name,
 		   c1.country_code		as city_country_code,
@@ -51,10 +53,12 @@
 		   c2.code2				as country_code2
 	  from city c1 left outer join country c2
 	    on c1.country_code = c2.code
-	 where c1.code = "KOR"
+	 where c1.country_code = 'KOR'
+
 </select>
 
 <select id="selectPageWithCountry" resultMap="cityWithCountry">
+	
 	select c1.id				as city_id,
 		   c1.name				as city_name,
 		   c1.country_code		as city_country_code,
@@ -83,6 +87,7 @@
 </select>
 
 <select id="selectByIdWithCountry" resultMap="cityWithCountry">
+	
 	select c1.id				as city_id,
 		   c1.name				as city_name,
 		   c1.country_code		as city_country_code,
@@ -106,6 +111,7 @@
 	  from city c1 left outer join country c2
 	    on c1.country_code = c2.code
 	 where c1.id = #{id}
+	 
 </select>
 
 </mapper>

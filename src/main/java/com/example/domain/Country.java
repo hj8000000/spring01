@@ -23,16 +23,13 @@ public class Country {
 	private String headOfState;
 	private BigDecimal capital;
 	private String code2;
-	
 	private List<City> citys;
-	
-	
 
-	public List<City> getCity() {
+	public List<City> getCitys() {
 		return citys;
 	}
 
-	public void setCity(List<City> citys) {
+	public void setCitys(List<City> citys) {
 		this.citys = citys;
 	}
 
