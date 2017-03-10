@@ -16,21 +16,19 @@
 <script type="text/javascript" src="/webjars/jquery/1.11.1/jquery.min.js"></script>
 <!-- 4. bootstrap.js -->
 <script type="text/javascript" src="/webjars/bootstrap/3.3.7-1/js/bootstrap.min.js"></script>
+<!-- code_assist -->
+<c:if test="false">
+<link rel="stylesheet" href="../code_assist/animate.css">
+<link rel="stylesheet" href="../code_assist/bootstrap.css">
+</c:if>
+
 </head>
 <body>
-${error}<br>
-
-${country.code} ${country.name} ${country.population}<br>
+<h1>City Detail Info</h1>
+${city}
 <hr>
-
-<ol>
-<c:forEach var="city" items="${country.citys}">
-	<li>${city.id}, ${city.name}, ${city.population}</li>
-</c:forEach>
-</ol>
-
+${city.country}
 <hr>
-${country}
-
+<a href="/city/page/${param.pageNo}">목록으로</a>
 </body>
 </html>

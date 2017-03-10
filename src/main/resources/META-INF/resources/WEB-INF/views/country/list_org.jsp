@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset=UTF-8>
-<title>item.jsp</title>
+<title>list.jsp</title>
 <!-- 1. animate -->
 <link rel="stylesheet" href="/webjars/animate.css/3.5.2/animate.min.css">
 <!-- 2. bootstrap -->
@@ -18,19 +18,10 @@
 <script type="text/javascript" src="/webjars/bootstrap/3.3.7-1/js/bootstrap.min.js"></script>
 </head>
 <body>
-${error}<br>
 
-${country.code} ${country.name} ${country.population}<br>
-<hr>
-
-<ol>
-<c:forEach var="city" items="${country.citys}">
-	<li>${city.id}, ${city.name}, ${city.population}</li>
+<c:forEach var="country" items="${list}">
+	${country.code} ${country.name} ${country.population} <br>
 </c:forEach>
-</ol>
-
-<hr>
-${country}
 
 </body>
 </html>
