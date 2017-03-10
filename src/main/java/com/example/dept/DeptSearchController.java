@@ -39,7 +39,7 @@ public class DeptSearchController {
 	public String getPage(@PathVariable int pageNo, Model model) {
 		log.info("getPage()");
 		
-		Map<String, Object> page = deptSearchService.getPage(pageNo, true);
+		Map<String, Object> page = deptSearchService.getPage(pageNo);
 		model.addAttribute("page", page);
 		
 		return "dept/page";
@@ -50,7 +50,7 @@ public class DeptSearchController {
 		log.info("getItemByDeptno()");
 		
 		try{
-			Dept dept = deptSearchService.getDeptByDeptno(deptno);
+			Dept dept = deptSearchService.getDeptByDeptno(deptno, true);
 			model.addAttribute("dept", dept);
 		} catch (NotFoundRuntimeException e) {
 			model.addAttribute("error", e.getMessage());

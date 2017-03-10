@@ -8,14 +8,7 @@
 <head>
 <meta charset=UTF-8>
 <title>item.jsp</title>
-<!-- 1. animate -->
-<link rel="stylesheet" href="/webjars/animate.css/3.5.2/animate.min.css">
-<!-- 2. bootstrap -->
-<link rel="stylesheet" href="/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css">
-<!-- 3. jquery -->
-<script type="text/javascript" src="/webjars/jquery/1.11.1/jquery.min.js"></script>
-<!-- 4. bootstrap.js -->
-<script type="text/javascript" src="/webjars/bootstrap/3.3.7-1/js/bootstrap.min.js"></script>
+
 <!-- code_assist -->
 <c:if test="false">
 <link rel="stylesheet" href="../code_assist/animate.css">
@@ -24,6 +17,17 @@
 
 </head>
 <body>
+${error}<br>
 
+${dept.deptno}, ${dept.dname}, ${dept.loc}<br>
+
+<ol>
+<c:forEach var="emps" items="${dept.emps}">
+	<li>${emp.empno}, ${emp.ename}, ${emp.hiredate}</li>
+</c:forEach>
+</ol>
+<hr>
+
+${dept}
 </body>
 </html>

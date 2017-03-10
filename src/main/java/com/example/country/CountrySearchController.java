@@ -34,7 +34,7 @@ public class CountrySearchController {
 		return "country/list";
 	}
 	
-	@GetMapping("/page_org/{pageNo}")
+	@GetMapping("/page/{pageNo}")
 	public String getPage(@PathVariable int pageNo, Model model) {
 		log.info("getPage(" + pageNo + ")");
 		
