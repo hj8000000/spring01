@@ -2,6 +2,7 @@ package com.example.mapper;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 
@@ -31,5 +32,21 @@ public interface CountryMapper {
 	@Select("select * from country where code=#{code}")
 	Country selectByCode(String code);
 	Country selectByCodeWithCity(String code);
+	
+	/*
+	 * Insert
+	 */
+	int insert(Country country);
+	
+	/*
+	 * Update
+	 */
+	int updateByCode(Country country);
+	
+	/*
+	 * Delete
+	 */
+	@Delete("delete from country where code=#{code}")
+	int deleteByCode(String code);
 	
 }

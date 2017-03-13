@@ -75,18 +75,38 @@ public class DeptMapperTests {
 	@Test
 	public void test03_selectByDeptno() {
 		Dept dept = mapper.selectByDeptno(10);
-		if (dept == null) {
-			throw new NotFoundRuntimeException("dept 정보가 없습니다.");
-		}
+		
 		System.out.println(dept);
 	}
 	@Test
-	public void test02_selectByDeptnoWithEmp() {
+	public void test03_selectByDeptnoWithEmp() {
 		Dept dept = mapper.selectByDeptnoWithEmp(40);
-		if (dept == null) {
-			throw new NotFoundRuntimeException("dept 정보가 없습니다.");
-		}
+		
 		System.out.println(dept);
 	}
-
+	
+	@Test
+	public void test04_insert() {
+		Dept dept =  new Dept();
+		dept.setDeptno(50);
+		dept.setDname("jsp");
+		
+		Dept d = mapper.selectByDeptno(dept.getDeptno());
+		
+		if (d != null) {
+			System.out.println("error = Deptno 가 존재합니다");
+			return;
+		}
+		
+		int cnt = mapper.insert(dept);
+		System.out.println(mapper.selectByDeptno(dept.getDeptno()));	
+	}
+	
+	@Test
+	public void test06_deleteByDeptno() {
+		int deptno = 50;
+		int cnt = mapper.deleteByDeptno(deptno);
+		System.out.println("cnt = " + cnt);
+		System.out.println("dept = " + mapper.selectByDeptno(deptno));
+	}
 }

@@ -1,3 +1,16 @@
+
+select * from city where country_code = 'KOR';
+
+drop sequence city_id_seq;
+create sequence city_id_seq start with 4080;
+
+select city_id_seq.nextval from dual;
+
+drop sequence emp_empno_seq;
+create sequence emp_empno_seq start with 8000;
+
+select emp_empno_seq.nextval from dual;
+
 select * from dept;
 select * from country;
 select count(*) from country;
@@ -155,3 +168,14 @@ select *
  order by c1.code
 offset 2 rows
  fetch next 3 rows only;
+ 
+ delete from country where code ='KOR';
+ 
+ delete from dept where deptno= 10;
+ 
+ select * from emp;
+ 
+ select count(*) from city;
+ 
+ delete from country;
+ 

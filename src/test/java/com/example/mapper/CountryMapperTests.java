@@ -23,7 +23,6 @@ public class CountryMapperTests {
 	public void test00_confirmMapper() {
 		System.out.println("mapper = " + mapper);
 	}
-	
 	@Test
 	public void test00_selectTotalCount() {
 		System.out.println("totalCountry = " + mapper.selectTotalCount());
@@ -37,7 +36,6 @@ public class CountryMapperTests {
 			System.out.println(c);
 		}
 	}
-	
 	@Test
 	public void test01_selectAllWithCity() {
 		List<Country> list = mapper.selectAllWithCity();
@@ -58,7 +56,6 @@ public class CountryMapperTests {
 			System.out.println(c);
 		}
 	}
-	
 	@Test
 	public void test02_selectPageWithCity() {
 		Pagination paging = new Pagination();
@@ -74,19 +71,41 @@ public class CountryMapperTests {
 	@Test
 	public void test03_selectByCode() {
 		Country country = mapper.selectByCode("KOR");
-		if (country == null)
-			throw new NotFoundRuntimeException("country 가 없습니다.");
+		
+		System.out.println(country);
+	}
+	@Test
+	public void test03_selectByCodeWithCity() {
+		Country country = mapper.selectByCodeWithCity("KOR");
 		
 		System.out.println(country);
 	}
 	
 	@Test
-	public void test03_selectByCodeWithCity() {
-		Country country = mapper.selectByCodeWithCity("KOR");
-		if (country == null)
-			throw new NotFoundRuntimeException("country 가 없습니다.");
+	public void test04_insert() {
+		Country country = new Country();
+		country.setCode("xxx");
+		country.setName("java");
 		
-		System.out.println(country);
+		Country c= mapper.selectByCode(country.getCode());
+		
+		if ( c != null) {
+			System.out.println("error = Country Code가 존재합니다.");
+			return;
+		}
+		
+		int cnt = mapper.insert(country);
+		System.out.println(mapper.selectByCode(country.getCode()));
 	}
+	
+	@Test
+	public void test06_deleteByCode() {
+		String code = "xxx";
+		int cnt = mapper.deleteByCode(code);
+		System.out.println("cnt = " + cnt);
+		System.out.println("country = " + mapper.selectByCode(code));
+	}
+	
+	
 	
 }

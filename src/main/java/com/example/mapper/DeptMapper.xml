@@ -70,4 +70,23 @@
 	    on d.deptno = e.deptno
 	 where d.deptno = #{deptno} 
 </select>
+
+<insert id="insert">
+	insert into dept
+	(
+		deptno,
+		dname,
+		loc
+	)
+	values
+	(
+		#{deptno},
+		#{dname},
+		#{loc}
+	)
+</insert>
+
+<update id="updateByDeptno">
+
+</update>
 </mapper>

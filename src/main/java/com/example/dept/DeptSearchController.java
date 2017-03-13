@@ -49,12 +49,9 @@ public class DeptSearchController {
 	public String getItemByDeptno(@PathVariable int deptno, Model model) {
 		log.info("getItemByDeptno()");
 		
-		try{
-			Dept dept = deptSearchService.getDeptByDeptno(deptno, true);
-			model.addAttribute("dept", dept);
-		} catch (NotFoundRuntimeException e) {
-			model.addAttribute("error", e.getMessage());
-		}
+	
+		Dept dept = deptSearchService.getDeptByDeptno(deptno, true);
+		model.addAttribute("dept", dept);
 		
 		return "dept/item";
 	}

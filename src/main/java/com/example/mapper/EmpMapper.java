@@ -32,4 +32,9 @@ public interface EmpMapper {
 	Emp selectByEmpno(int empno);
 	Emp selectByEmpnoWithDept(int empno);
 	
+	/*
+	 * Insert
+	 */
+	int insert(Emp emp);
+	
 }
